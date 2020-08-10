@@ -15,7 +15,7 @@ const Match = ({
       <div className="reacket-players">
         {players.map(({ name, seed, ...player }, index) => (
           <Player
-            key={player.id}
+            key={`${player.id}-${Math.random()}`}
             id={player.id}
             name={name}
             seed={seed}

@@ -15,9 +15,15 @@ const Round = ({
     if (!firstRound && !lastRound && index > 0) {
       matchElements.push(<Spacer key={`${match.id}-s`} height={2} />);
     }
-    matchElements.push(
-      <Match key={match.id} score={match.score} id={match.id} players={match.players} />,
-    );
+
+    if (match.needSpacer === true) {
+      matchElements.push(<Spacer key={`${match.id}-s2`} height={4.25} />);
+    } else {
+      matchElements.push(
+        <Match key={match.id} score={match.score} id={match.id} players={match.players} />,
+      );
+    }
+
     return matchElements;
   });
   if (!firstRound && !lastRound) {

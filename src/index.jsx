@@ -29,7 +29,7 @@ const Reacket = ({ matches }) => {
             const roundNumber = rounds.length - index;
             if (index > 0) {
               jsx.push(
-                <Connector key={`${roundNumber}-c`} round={roundNumber} />,
+                <Connector key={`${roundNumber}-c`} round={roundNumber} roundCount={rounds.length} matches={matches} />,
               );
             }
             jsx.push(

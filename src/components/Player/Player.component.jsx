@@ -14,7 +14,7 @@ const Player = ({
       title={`${name} ${winner ? '(W)' : '(L)'}`}
       className={`reacket-player 
         ${winner ? 'reacket-winner' : ''} 
-        ${highlightedPlayer === id ? 'reacket-highlighted' : ''}`}
+        ${highlightedPlayer === id && id !== 0 ? 'reacket-highlighted' : ''}`}
     >
       <div title="Seed" className="reacket-player-seed">{seed}</div>
       <div className="reacket-player-name">{name}</div>
