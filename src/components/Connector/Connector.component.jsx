@@ -57,7 +57,7 @@ const Connector = ({ round, roundCount, matches }) => {
 Connector.propTypes = {
   round: PropTypes.number.isRequired,
   roundCount: PropTypes.number.isRequired,
-  matches: PropTypes.number.isRequired,
+  matches: PropTypes.array.isRequired,
 };
 
 export default Connector;

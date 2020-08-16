@@ -51,7 +51,7 @@ const Reacket = ({ matches }) => {
 
 Reacket.propTypes = {
   matches: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     round: PropTypes.number.isRequired,
     match: PropTypes.number.isRequired,
     players: PropTypes.arrayOf(PropTypes.shape(

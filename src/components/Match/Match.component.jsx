@@ -29,7 +29,7 @@ const Match = ({
 };
 
 Match.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   players: PropTypes.arrayOf(PropTypes.shape(
     {
       id: PropTypes.number,
