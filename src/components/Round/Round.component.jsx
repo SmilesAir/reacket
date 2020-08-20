@@ -5,7 +5,7 @@ import Match from '../Match/Match.component';
 import Spacer from '../Spacer/Spacer.component';
 
 const Round = ({
-  lastRound, firstRound, matches, round,
+  lastRound, firstRound, matches, round, isRuntime, setMatchCallback,
 }) => {
   const matchElements = [];
   if (!firstRound && !lastRound) {
@@ -20,7 +20,7 @@ const Round = ({
       matchElements.push(<Spacer key={`${match.id}-s2`} height={4.25} />);
     } else {
       matchElements.push(
-        <Match key={match.id} score={match.score} id={match.id} players={match.players} />,
+        <Match key={match.id} score={match.score} id={match.id} players={match.players} isRuntime={isRuntime} setMatchCallback={setMatchCallback} />,
       );
     }
 
@@ -49,11 +49,15 @@ Round.propTypes = {
     score: PropTypes.arrayOf(PropTypes.number.isRequired),
   })).isRequired,
   round: PropTypes.number.isRequired,
+  isRuntime: PropTypes.bool,
+  setMatchCallback: PropTypes.func,
 };
 
 Round.defaultProps = {
   lastRound: false,
   firstRound: false,
+  isRuntime: false,
+  setMatchCallback: undefined,
 };
 
 export default Round;
