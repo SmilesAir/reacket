@@ -7,7 +7,7 @@ import RoundHeader from './components/RoundHeader/RoundHeader.component';
 import HighlightContext from './context/HighlightContext';
 import convertMatchesToRounds from './util/convertMatchesToRounds';
 
-const Reacket = ({ matches, isRuntime, setMatchCallback }) => {
+const Reacket = ({ matches, isRuntime, getExpandElement }) => {
   const [highlightedPlayer, setHighlightedPlayer] = useState(null);
   const highlightContextValue = { highlightedPlayer, setHighlightedPlayer };
   const rounds = convertMatchesToRounds(matches);
@@ -40,7 +40,7 @@ const Reacket = ({ matches, isRuntime, setMatchCallback }) => {
                 matches={round.matches}
                 round={round.round}
                 isRuntime={isRuntime}
-                setMatchCallback={setMatchCallback}
+                getExpandElement={getExpandElement}
               />,
             );
             return jsx;
@@ -66,12 +66,12 @@ Reacket.propTypes = {
     score: PropTypes.arrayOf(PropTypes.number.isRequired),
   })).isRequired,
   isRuntime: PropTypes.bool,
-  setMatchCallback: PropTypes.func,
+  getExpandElement: PropTypes.func,
 };
 
 Reacket.defaultProps = {
   isRuntime: false,
-  setMatchCallback: undefined,
+  getExpandElement: undefined,
 };
 
 export default Reacket;

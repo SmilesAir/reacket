@@ -4,7 +4,7 @@ import './Match.styles.scss';
 import Player from '../Player/Player.component';
 
 const Match = ({
-  players, id, score, isRuntime, setMatchCallback,
+  players, id, score, isRuntime, getExpandElement,
 }) => {
   const winnerIdx = score[0] > score[1] ? 0 : 1;
   return (
@@ -24,7 +24,7 @@ const Match = ({
           />
         ))}
       </div>
-      {isRuntime ? <button type="button" onClick={setMatchCallback && (() => setMatchCallback(id))}>Set</button> : null}
+      {isRuntime ? getExpandElement(id) : null}
     </div>
   );
 };
@@ -40,12 +40,12 @@ Match.propTypes = {
   )).isRequired,
   score: PropTypes.arrayOf(PropTypes.number).isRequired,
   isRuntime: PropTypes.bool,
-  setMatchCallback: PropTypes.func,
+  getExpandElement: PropTypes.func,
 };
 
 Match.defaultProps = {
   isRuntime: false,
-  setMatchCallback: undefined,
+  getExpandElement: () => null,
 };
 
 export default Match;
