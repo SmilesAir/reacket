@@ -27,6 +27,8 @@ const Round = ({
           players={match.players}
           isRuntime={isRuntime}
           getExpandElement={getExpandElement}
+          isFinal={match.isFinal}
+          isCurrent={match.isCurrent}
         />,
       );
     }

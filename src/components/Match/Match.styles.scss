@@ -14,3 +14,15 @@
     width: 20rem;
   }
 }
+
+.pending {
+  border: dashed 2px lightgray;
+}
+
+.current {
+  border: dashed 2px rgb(0, 183, 255);
+}
+
+.final {
+  border: solid 2px lightgray;
+}
