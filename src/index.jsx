@@ -7,7 +7,7 @@ import RoundHeader from './components/RoundHeader/RoundHeader.component';
 import HighlightContext from './context/HighlightContext';
 import convertMatchesToRounds from './util/convertMatchesToRounds';
 
-const Reacket = ({ matches, isRuntime, getExpandElement }) => {
+const Reacket = ({ matches, showExpandElement, getExpandElement }) => {
   const [highlightedPlayer, setHighlightedPlayer] = useState(null);
   const highlightContextValue = { highlightedPlayer, setHighlightedPlayer };
   const rounds = convertMatchesToRounds(matches);
@@ -39,7 +39,7 @@ const Reacket = ({ matches, isRuntime, getExpandElement }) => {
                 lastRound={index === 0}
                 matches={round.matches}
                 round={round.round}
-                isRuntime={isRuntime}
+                showExpandElement={showExpandElement}
                 getExpandElement={getExpandElement}
               />,
             );
@@ -63,14 +63,14 @@ Reacket.propTypes = {
         seed: PropTypes.number.isRequired,
       },
     )),
-    score: PropTypes.arrayOf(PropTypes.number.isRequired),
+    score: PropTypes.arrayOf(PropTypes.string.isRequired),
   })).isRequired,
-  isRuntime: PropTypes.bool,
+  showExpandElement: PropTypes.bool,
   getExpandElement: PropTypes.func,
 };
 
 Reacket.defaultProps = {
-  isRuntime: false,
+  showExpandElement: false,
   getExpandElement: undefined,
 };
 

@@ -27,7 +27,7 @@ Player.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   seed: PropTypes.number.isRequired,
-  score: PropTypes.number.isRequired,
+  score: PropTypes.string.isRequired,
   winner: PropTypes.bool.isRequired,
 };
 

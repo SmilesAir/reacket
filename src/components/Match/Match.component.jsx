@@ -4,9 +4,12 @@ import './Match.styles.scss';
 import Player from '../Player/Player.component';
 
 const Match = ({
-  players, id, score, isRuntime, getExpandElement, isFinal, isCurrent,
+  players, id, score, showExpandElement, getExpandElement, isFinal, isCurrent,
 }) => {
-  const winnerIdx = score[0] > score[1] ? 0 : 1;
+  let winnerIdx;
+  if (score[0] !== score[1]) {
+    winnerIdx = score[0] > score[1] ? 0 : 1;
+  }
   let className = 'reacket-match';
   if (isFinal === true) {
     className += ' final';
@@ -32,7 +35,7 @@ const Match = ({
           />
         ))}
       </div>
-      {isRuntime ? getExpandElement(id) : null}
+      {showExpandElement ? getExpandElement(id, players) : null}
     </div>
   );
 };
@@ -46,18 +49,18 @@ Match.propTypes = {
       seed: PropTypes.number,
     },
   )).isRequired,
-  score: PropTypes.arrayOf(PropTypes.number).isRequired,
-  isRuntime: PropTypes.bool,
+  score: PropTypes.arrayOf(PropTypes.string).isRequired,
+  showExpandElement: PropTypes.bool,
   getExpandElement: PropTypes.func,
   isFinal: PropTypes.bool,
   isCurrent: PropTypes.bool,
 };
 
 Match.defaultProps = {
-  isRuntime: false,
+  showExpandElement: false,
   getExpandElement: () => null,
   isFinal: false,
-  current: false,
+  isCurrent: false,
 };
 
 export default Match;
