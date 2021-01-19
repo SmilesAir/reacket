@@ -16,7 +16,7 @@ const getRoundHeaderText = (round, totalRounds) => {
     return 'Preliminaries';
   }
   if (round === totalRounds - 4) {
-    return 'Initiations';
+    return 'Qualifications';
   }
 
   return `Round ${round}`;
