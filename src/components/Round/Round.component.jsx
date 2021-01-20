@@ -29,6 +29,7 @@ const Round = ({
           getExpandElement={getExpandElement}
           isFinal={match.isFinal}
           isCurrent={match.isCurrent}
+          label={match.label}
         />,
       );
     }
@@ -56,6 +57,7 @@ Round.propTypes = {
       },
     )),
     score: PropTypes.arrayOf(PropTypes.string.isRequired),
+    label: PropTypes.string.isRequired,
   })).isRequired,
   round: PropTypes.number.isRequired,
   showExpandElement: PropTypes.bool,

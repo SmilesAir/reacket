@@ -4,7 +4,7 @@ import './Match.styles.scss';
 import Player from '../Player/Player.component';
 
 const Match = ({
-  players, id, score, showExpandElement, getExpandElement, isFinal, isCurrent,
+  players, id, score, showExpandElement, getExpandElement, isFinal, isCurrent, label,
 }) => {
   let winnerIdx;
   if (score[0] !== score[1]) {
@@ -21,7 +21,7 @@ const Match = ({
   return (
     <div className={className}>
       <div className="reacket-match-id">
-        {id}
+        {label}
       </div>
       <div className="reacket-players">
         {players.map(({ name, seed, ...player }, index) => (
@@ -54,6 +54,7 @@ Match.propTypes = {
   getExpandElement: PropTypes.func,
   isFinal: PropTypes.bool,
   isCurrent: PropTypes.bool,
+  label: PropTypes.string.isRequired,
 };
 
 Match.defaultProps = {
