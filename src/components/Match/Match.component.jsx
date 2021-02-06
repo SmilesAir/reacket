@@ -7,7 +7,7 @@ const Match = ({
   players, id, score, showExpandElement, getExpandElement, isFinal, isCurrent, label,
 }) => {
   let winnerIdx;
-  if (score[0] !== score[1]) {
+  if (score[0] !== score[1] && !score[0].includes('%')) {
     winnerIdx = score[0] > score[1] ? 0 : 1;
   }
   let className = 'reacket-match';
