@@ -24,11 +24,12 @@ const Match = ({
         {label}
       </div>
       <div className="reacket-players">
-        {players.map(({ name, seed, ...player }, index) => (
+        {players.map(({ name, rating, seed, ...player }, index) => (
           <Player
             key={`${player.id}-${Math.random()}`}
             id={player.id}
             name={name}
+            rating={rating}
             seed={seed}
             score={score[index]}
             winner={index === winnerIdx}
@@ -46,6 +47,7 @@ Match.propTypes = {
     {
       id: PropTypes.number,
       name: PropTypes.string,
+      rating: PropTypes.string,
       seed: PropTypes.number,
     },
   )).isRequired,
