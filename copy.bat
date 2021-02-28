@@ -1,2 +1,2 @@
 
-xcopy /s /Y C:\Users\Ryan\Desktop\reacket\dist C:\Users\Ryan\Desktop\BattlePass\client\node_modules\reacket\dist
+xcopy /s /Y /I /F C:\GitHub\reacket\dist C:\GitHub\BattlePass\client\node_modules\reacket\dist
